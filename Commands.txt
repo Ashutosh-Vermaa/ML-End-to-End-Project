@@ -1,0 +1,21 @@
+ conda create -p venv python==3.7 -y
+ to create a virtual environment. -p is used to create virtual env for the present directory, so when we close the Project
+ the env also destroys
+ venv is the name of the virtual env. -y is for yes in advance if it asks for proceeding
+
+ After creating venv, to activate- conda activate venv/
+
+ then we create a requirement file where we put all the packages required for our Project
+ 
+ To install the requirements from the requirement file- pip install -r requirements.txt
+
+ next, we create a app.py file to write flask code in it. To run a python file: python filename.py
+
+ Now, we send this file to github repository. We add 
+ env/
+venv/
+ENV/
+
+in the .gitignore file so that git doesn;t have to manage the virtual env even when we add the folder to git with virtual environment in it
+we can also mention files that we don't want to add to github in .gitignore while doing: 'git add .'git which adds all the files
+in the current folder
