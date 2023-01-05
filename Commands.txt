@@ -1,4 +1,4 @@
- conda create -n venv python==3.7 -y
+ conda create -p venv python==3.7 -y
  to create a virtual environment. -p is used to create virtual env for the present directory, so when we close the Project
  the env also shuts
  venv is the name of the virtual env. -y is for yes in advance if it asks for proceeding
