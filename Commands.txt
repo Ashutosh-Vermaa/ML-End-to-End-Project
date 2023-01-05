@@ -1,6 +1,6 @@
  conda create -p venv python==3.7 -y
  to create a virtual environment. -p is used to create virtual env for the present directory, so when we close the Project
- the env also destroys
+ the env also shuts
  venv is the name of the virtual env. -y is for yes in advance if it asks for proceeding
 
  After creating venv, to activate- conda activate venv/
@@ -9,7 +9,7 @@
  
  To install the requirements from the requirement file- pip install -r requirements.txt
 
- next, we create a app.py file to write flask code in it. To run a python file: python filename.py
+ next, we create a app.py file to write the app code in it. To run a python file: python filename.py
 
  Now, we send this file to github repository. We add 
  env/
@@ -19,3 +19,41 @@ ENV/
 in the .gitignore file so that git doesn;t have to manage the virtual env even when we add the folder to git with virtual environment in it
 we can also mention files that we don't want to add to github in .gitignore while doing: 'git add .'git which adds all the files
 in the current folder
+
+git status: tells you the status of the files-> committed or not etc. 
+git log : gives info about the commits in the git, history etc. 
+
+then we first commit the changes to save them locally
+
+then we push the changes to github. Now, we deploy the app using hereku
+
+git push command updates the remote repository with local commits. 
+And origin represents a remote name where the user wants to push the changes.
+
+WE create a dockerfile- Dockerfile. We copy the current folder in the file but venv is not required. So, we create a 
+.dockerignore file where we mention venv/, .git, .gitignore to ignore including the these in dockerfile
+
+then, we copy all the files in a new folder app inside the docker file- COPY . /app and make working directory as app-
+WORKDIR /app. Then, we write a command to run the requirement file in the docker- RUN pip install -r requirements.txt
+
+We create an environment variable- PORT on which the model will run. 
+To launch falsk application, CMD gunicorn --workers=1 --bind 0.0.0.0:$PORT app:app here (app (filename): app(object name inside file))
+
+Then, we build docker image- docker build -t ml-project:lastest . 
+(docker build -t <image_name>:<tagname> .)
+
+To list docker image
+docker images
+
+Run docker image
+docker run -p 5000:5000 -e PORT=5000 22d84a66cda4
+(to test search localhost:5000 in your browser)
+
+Then run http://localhost:5000/ to see if your project is working
+
+To check running container in docker
+docker ps
+
+Tos stop docker conatiner
+docker stop <container_id>
+
