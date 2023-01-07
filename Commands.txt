@@ -12,13 +12,13 @@
  next, we create a app.py file to write the app code in it. To run a python file: python filename.py
 
  Now, we send this file to github repository. We add 
- env/
+ env/ 
 venv/
 ENV/
-
+(add a forward slash after the name of the folder you want to exclude)
 in the .gitignore file so that git doesn;t have to manage the virtual env even when we add the folder to git with virtual environment in it
 we can also mention files that we don't want to add to github in .gitignore while doing: 'git add .'git which adds all the files
-in the current folder
+in the current folder 
 
 git status: tells you the status of the files-> committed or not etc. 
 git log : gives info about the commits in the git, history etc. 
